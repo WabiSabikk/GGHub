@@ -1,0 +1,45 @@
+:root {
+    --color-bg: #0D0F12;
+    --color-grid-bg: #0D0F12;
+    --color-card-bg: #171B21;
+    --color-border: #2A2F38;
+    --color-primary-text: #E2E5EA;
+    --color-secondary-text: #9AA0A9;
+    --color-accent: #5AFF88;
+    --color-accent-text: #0D0F12;
+    --color-button-bg: #5AFF88;
+    --color-button-text: #0D0F12;
+    --color-button-hover: #51E57A;
+    --color-input-bg: #171B21;
+    --color-input-text: #E2E5EA;
+    --color-input-border: #2A2F38;
+    --color-checkbox-bg: #171B21;
+    --color-checkbox-border: #2A2F38;
+    --color-checkbox-check: #5AFF88;
+    --color-grid-item-bg: #171B21;
+
+    --gradient-primary: linear-gradient(135deg, #5AFF88 0%, #51E57A 100%);
+    --gradient-accent: linear-gradient(135deg, #5AFF88 0%, #4AE76F 100%);
+    --gradient-card: linear-gradient(135deg, rgba(23, 27, 33, 0.9) 0%, rgba(42, 47, 56, 0.2) 100%);
+
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+}

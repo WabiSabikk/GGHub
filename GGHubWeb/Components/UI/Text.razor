@@ -1,0 +1,49 @@
+@if (Heading > 0)
+{
+    @switch (Heading)
+    {
+        case 1:
+            <h1 class="text-heading text-h1 @GetTextClass()">@Content @ChildContent</h1>
+            break;
+        case 2:
+            <h2 class="text-heading text-h2 @GetTextClass()">@Content @ChildContent</h2>
+            break;
+        case 3:
+            <h3 class="text-heading text-h3 @GetTextClass()">@Content @ChildContent</h3>
+            break;
+        case 4:
+            <h4 class="text-heading text-h4 @GetTextClass()">@Content @ChildContent</h4>
+            break;
+    }
+}
+else
+{
+    <p class="text-body @GetTextClass()">@Content @ChildContent</p>
+}
+
+@code {
+    [Parameter] public string? Content { get; set; }
+    [Parameter] public int Heading { get; set; } = 0;
+    [Parameter] public TextVariant Variant { get; set; } = TextVariant.Default;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? AdditionalClass { get; set; }
+
+    private string GetTextClass()
+    {
+        var classes = new List<string>();
+
+        classes.Add(Variant switch
+        {
+            TextVariant.Muted => "text-muted",
+            TextVariant.Accent => "text-accent",
+            _ => ""
+        });
+
+        if (!string.IsNullOrEmpty(AdditionalClass))
+            classes.Add(AdditionalClass);
+
+        return string.Join(" ", classes.Where(c => !string.IsNullOrEmpty(c)));
+    }
+
+    public enum TextVariant { Default, Muted, Accent }
+}

@@ -1,0 +1,219 @@
+@page "/"
+
+<PageTitle>CS2 Duels Arena - Military Theme</PageTitle>
+
+<Header />
+
+<div class="container">
+    <section class="hero-section">
+        <div class="hero-content animate-slide-in-left">
+            <Text Heading="1" Variant="Text.TextVariant.Accent" AdditionalClass="hero-title animate-glow">GGHUB</Text>
+            <Text Variant="Text.TextVariant.Accent" AdditionalClass="hero-subtitle">Турніри 1v1 • 2v2 • 5v5</Text>
+            <Text AdditionalClass="hero-description">Грай, вигравай, заробляй €€€</Text>
+
+            <Button Text="LOGIN WITH STEAM"
+                      IconName="gamepad"
+                      Size="Button.ButtonSize.Large"
+                      AdditionalClass="steam-button" />
+
+            <div class="security-text">
+                <svg class="security-icon">
+                    <use href="/icons/lock.svg#lock"></use>
+                </svg>
+                <span>Безпечно • Швидко • Прозорі результати</span>
+            </div>
+        </div>
+
+        <div class="hero-image animate-slide-in-right">
+            <div class="operator-visual animate-border-glow"><img src="/images/5.png" /></div>
+            
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <Text AdditionalClass="stat-number text-accent">1,247</Text>
+                <Tag Text="Active Players" Variant="Tag.TagVariant.Secondary" />
+            </div>
+            <div class="stat-item">
+                <Text AdditionalClass="stat-number text-accent">€12,500</Text>
+                <Tag Text="Prize Money Paid" Variant="Tag.TagVariant.Secondary" />
+            </div>
+            <div class="stat-item">
+                <Text AdditionalClass="stat-number text-accent">4.8⭐</Text>
+                <Tag Text="User Rating" Variant="Tag.TagVariant.Secondary" />
+            </div>
+        </div>
+    </section>
+
+    <section class="bento-grid bento-grid-cols-auto animate-scale-in">
+        <Card AdditionalClass="hover-lift hover-glow">
+            <BodyContent>
+                <div class="feature-icon">⚡</div>
+                <Text Heading="3" AdditionalClass="feature-title">Як це працює</Text>
+                <Text Variant="Text.TextVariant.Muted">
+                    1. Увійди через Steam<br>
+                    2. Створи дуель або приєднайся<br>
+                    3. Заплати entry fee<br>
+                    4. Грай на автоматичному сервері<br>
+                    5. Отримай приз за перемогу
+                </Text>
+            </BodyContent>
+        </Card>
+
+        <Card AdditionalClass="hover-lift hover-glow">
+            <BodyContent>
+                <div class="feature-icon">🎯</div>
+                <Text Heading="3" AdditionalClass="feature-title">Сервери по всьому світу</Text>
+                <Text Variant="Text.TextVariant.Muted">
+                    <strong>Якісні карти</strong><br>
+                    128-tick rate<br>
+                    гнучкі кофігурації<br>
+                    <strong>Готово за 30 секунд!</strong>
+                </Text>
+            </BodyContent>
+        </Card>
+    </section>
+</div>
+
+<style>
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-section {
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    min-height: 70vh;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 4rem !important;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.security-text {
+    color: var(--color-secondary-text);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.security-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .operator-visual {
+        width: 100%;
+        aspect-ratio: 16 / 9; /* Співвідношення сторін як у вашого зображення */
+        background: var(--gradient-card);
+        border-radius: 12px;
+        border: 2px solid var(--color-border);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(90, 255, 136, 0.1);
+        margin: 0 auto; /* Центрування */
+    }
+
+        .operator-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Зображення заповнить контейнер пропорційно */
+            object-position: center; /* Центрування зображення */
+            display: block;
+        }
+.operator-visual::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-accent);
+    animation: borderGlow 4s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+.stats-section {
+    margin-bottom: 4rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    margin-bottom: 1rem;
+}
+
+@@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-description {
+        font-size: 1.4rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .operator-visual {
+        width: 250px;
+        height: 320px;
+    }
+}
+</style>

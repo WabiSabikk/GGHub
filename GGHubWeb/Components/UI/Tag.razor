@@ -1,0 +1,38 @@
+<span class="tag @GetTagClass()">
+    @if (!string.IsNullOrEmpty(IconName))
+    {
+        <svg class="tag-icon">
+            <use href="/icons/@(IconName).svg#@IconName"></use>
+        </svg>
+    }
+    @Text
+    @ChildContent
+</span>
+
+@code {
+    [Parameter] public string? Text { get; set; }
+    [Parameter] public string? IconName { get; set; }
+    [Parameter] public TagVariant Variant { get; set; } = TagVariant.Primary;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? AdditionalClass { get; set; }
+
+    private string GetTagClass()
+    {
+        var classes = new List<string>
+        {
+            Variant switch
+            {
+                TagVariant.Primary => "tag-primary",
+                TagVariant.Secondary => "tag-secondary",
+                _ => "tag-primary"
+            }
+        };
+
+        if (!string.IsNullOrEmpty(AdditionalClass))
+            classes.Add(AdditionalClass);
+
+        return string.Join(" ", classes);
+    }
+
+    public enum TagVariant { Primary, Secondary }
+}

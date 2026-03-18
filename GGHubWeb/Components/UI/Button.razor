@@ -1,0 +1,52 @@
+<button class="btn @GetButtonClass()" @onclick="OnClick" disabled="@Disabled" type="@Type">
+    @if (!string.IsNullOrEmpty(IconName))
+    {
+        <svg class="btn-icon">
+            <use href="/icons/@(IconName).svg#@IconName"></use>
+        </svg>
+    }
+    @if (!string.IsNullOrEmpty(Text))
+    {
+        <span>@Text</span>
+    }
+    @ChildContent
+</button>
+
+@code {
+    [Parameter] public string? Text { get; set; }
+    [Parameter] public string? IconName { get; set; }
+    [Parameter] public ButtonVariant Variant { get; set; } = ButtonVariant.Primary;
+    [Parameter] public ButtonSize Size { get; set; } = ButtonSize.Default;
+    [Parameter] public bool Disabled { get; set; }
+    [Parameter] public string Type { get; set; } = "button";
+    [Parameter] public EventCallback OnClick { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? AdditionalClass { get; set; }
+
+    private string GetButtonClass()
+    {
+        var classes = new List<string>();
+
+        classes.Add(Variant switch
+        {
+            ButtonVariant.Primary => "btn-primary",
+            ButtonVariant.Secondary => "btn-secondary",
+            _ => "btn-primary"
+        });
+
+        classes.Add(Size switch
+        {
+            ButtonSize.Small => "btn-sm",
+            ButtonSize.Large => "btn-lg",
+            _ => ""
+        });
+
+        if (!string.IsNullOrEmpty(AdditionalClass))
+            classes.Add(AdditionalClass);
+
+        return string.Join(" ", classes.Where(c => !string.IsNullOrEmpty(c)));
+    }
+
+    public enum ButtonVariant { Primary, Secondary }
+    public enum ButtonSize { Small, Default, Large }
+}

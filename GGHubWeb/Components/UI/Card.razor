@@ -1,0 +1,28 @@
+<div class="card @AdditionalClass">
+    @if (HeaderContent != null)
+    {
+        <div class="card-header">
+            @HeaderContent
+        </div>
+    }
+
+    <div class="card-body">
+        @BodyContent
+        @ChildContent
+    </div>
+
+    @if (FooterContent != null)
+    {
+        <div class="card-footer">
+            @FooterContent
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public RenderFragment? HeaderContent { get; set; }
+    [Parameter] public RenderFragment? BodyContent { get; set; }
+    [Parameter] public RenderFragment? FooterContent { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? AdditionalClass { get; set; }
+}

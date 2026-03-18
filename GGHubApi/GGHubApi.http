@@ -1,0 +1,6 @@
+@GGHubApi_HostAddress = http://localhost:5276
+
+GET {{GGHubApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,9 @@
+<form @onsubmit="@OnSubmit" @onsubmit:preventDefault="true" class="@AdditionalClass">
+    @ChildContent
+</form>
+
+@code {
+    [Parameter] public EventCallback OnSubmit { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public string? AdditionalClass { get; set; }
+}
